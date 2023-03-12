@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Searching BOok</title>
+    </head>
+    <body>
+    <form th:method="POST" th:action="@{/books/search}">
+        <label for="key">Look for book</label>
+        <input type="text" id="key" name="key">
+
+        <input type="submit" value="Search"/>
+    </form>
+
+    <br>
+
+    <div th:each="book : ${foundBooks}">
+        <p th:text="${book.getTitle() + ', ' + book.getAuthor()  + ', ' + book.getYearOfPublishing()}"></p>
+    </div>
+    </body>
+</html>
